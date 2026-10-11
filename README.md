@@ -1,2 +1,2 @@
 # Speak-Number-Game
-Creating a simple web game "guess the number" using a microphone
+Creating a simple web game "guess the number" using a microphone as the input 
