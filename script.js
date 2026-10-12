@@ -1,12 +1,33 @@
 const msgEl = document.getElementById('msg');
 
+let userGuess = guess.value;
+
 // generate a random number
 function getRandomNumber() {
     return Math.floor(Math.random() * 100) + 1;
 }
 
-const randomNum= getRandomNumber();
+const randomNum = getRandomNumber();
 console.log('Number:', randomNum);
+
+
+/// guess via text box
+function checkGuess() {
+  if (userGuess === randomNum) {
+    feedback.textContent = `Congrats! You have guessed the number! It was ${num}.`;
+  }
+  else if (userGuess > randomNum) {
+    feedback.textContent = `GO LOWER`;
+  }
+  else if (userGuess < randomNum) {
+    feedback.textContent = `GO HIGHER`;
+  }
+}
+submitGuess.addEventListener('click', checkGuess);
+
+
+/// guess via mic
+
 
 window.SpeechRecognition =
 window.SpeechRecognition || window.webkitSpeechRecognition;
@@ -75,7 +96,7 @@ if (num<1 || num>100) {
 //check number and provide feedback
 if (num === randomNum) {
     const h2=document.createElement('h2');
-    h2.textContent = `Congrats! You have guessed the number! It was ${num}. You got it in ${guess} guess(es)!`;
+    h2.textContent = `Congrats! You have guessed the number! It was ${num}.`;
 
     const button = document.createElement('button');
     button.classList.add('play-again');
